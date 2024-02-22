@@ -4,6 +4,7 @@ import axios from "axios";
 
 function AllBeersPage() {
   const [beers, setBeers] = useState([]);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
     // how to update the beers state with data
@@ -11,6 +12,7 @@ function AllBeersPage() {
       .get("https://ih-beers-api2.herokuapp.com/beers")
       .then((response) => {
         setBeers(response.data);
+        setFetching(false);
         console.log(response.data);
       })
       .catch((err) => console.log(err));
@@ -19,6 +21,7 @@ function AllBeersPage() {
   return (
     <div>
       <h3>List of Beers</h3>
+      {fetching && <p>Loading...</p>}
       {beers.map((beer) => {
         return (
           <div key={beers._id}>
