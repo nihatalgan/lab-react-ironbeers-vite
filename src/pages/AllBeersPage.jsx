@@ -24,7 +24,7 @@ function AllBeersPage() {
       {fetching && <p>Loading...</p>}
       {beers.map((beer) => {
         return (
-          <div key={beers._id}>
+          <div key={beer._id}>
             <img
               style={{ height: "200px" }}
               src={beer.image_url}
@@ -33,7 +33,7 @@ function AllBeersPage() {
             <Link to={`/beers/${beer._id}`}>
               <h4>{beer.name}</h4>
             </Link>
-            <p>${beer.tagline}</p>
+            <p>{beer.tagline}</p>
             <p>Contributed By: {beer.contributed_by}</p>
           </div>
         );
