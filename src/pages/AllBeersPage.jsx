@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function AllBeersPage() {
@@ -26,7 +27,9 @@ function AllBeersPage() {
               src={beer.image_url}
               alt="beer_image"
             />
-            <h4>{beer.name}</h4>
+            <Link to={`/beers/${beer._id}`}>
+              <h4>{beer.name}</h4>
+            </Link>
             <p>${beer.tagline}</p>
             <p>Contributed By: {beer.contributed_by}</p>
           </div>
